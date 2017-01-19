@@ -3,7 +3,33 @@
     <wm-top-nav name="topnav" content="topnav"></wm-top-nav>
     <wm-content name="content">
         <wm-left-panel columnwidth="2" name="leftpanel" content="leftnav"></wm-left-panel>
-        <wm-page-content columnwidth="8" paddingleft="15" paddingright="15" name="mainContent">
+        <wm-page-content columnwidth="8" name="mainContent" padding="unset 15px">
+            <wm-composite name="composite1">
+                <wm-label class="col-md-3 control-label" name="label1" caption="Source"></wm-label>
+                <wm-container class="col-md-9" name="container1">
+                    <wm-text name="text1"></wm-text>
+                </wm-container>
+            </wm-composite>
+            <wm-composite name="composite2">
+                <wm-label class="col-md-3 control-label" name="label2" caption="Destination"></wm-label>
+                <wm-container class="col-md-9" name="container2">
+                    <wm-text name="text2"></wm-text>
+                </wm-container>
+            </wm-composite>
+            <wm-button class="btn-default" caption="click" type="button" margin="unset 0.5em" name="button1" on-click="Variables.GoogleapisInvoke.invoke()"></wm-button>
+            <wm-label padding="unset 0.5em" name="label3" caption="bind:Variables.GoogleapisInvoke.dataSet.route.leg.distance.text"></wm-label>
+            <wm-grid title="" dataset="bind:Variables.GoogleapisInvoke.dataSet" navigation="Basic" name="grid1">
+                <wm-grid-column binding="status" caption="Status" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-grid-column>
+                <wm-grid-column binding="route.bounds.southwest.lng" caption="Route.bounds.southwest Lng" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-grid-column>
+                <wm-grid-column binding="route.bounds.southwest.lat" caption="Route.bounds.southwest Lat" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-grid-column>
+                <wm-grid-column binding="route.bounds.northeast.lng" caption="Route.bounds.northeast Lng" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-grid-column>
+                <wm-grid-column binding="route.bounds.northeast.lat" caption="Route.bounds.northeast Lat" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-grid-column>
+                <wm-grid-column binding="route.summary" caption="Route Summary" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-grid-column>
+                <wm-grid-column binding="route.leg.distance.text" caption="Route.leg.distance Text" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-grid-column>
+                <wm-grid-column binding="route.leg.distance.value" caption="Route.leg.distance Value" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-grid-column>
+                <wm-grid-column binding="route.leg.duration.text" caption="Route.leg.duration Text" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-grid-column>
+                <wm-grid-column binding="route.leg.duration.value" caption="Route.leg.duration Value" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-grid-column>
+            </wm-grid>
         </wm-page-content>
         <wm-right-panel columnwidth="2" name="rightpanel" content="rightnav"></wm-right-panel>
     </wm-content>
